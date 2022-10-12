@@ -11,7 +11,7 @@ function askName() {
 
 function askBirthYear() {
 
-    var year = prompt("Quelle est votre année de naissance ?");
+    let year = prompt("Quelle est votre année de naissance ?");
     var month = prompt("Quelle est votre mois de naissance ?");
 
     /*function calculAge() {
@@ -19,12 +19,32 @@ function askBirthYear() {
         return age;
     }*/
 
-    var age = (2022 - year);
-    var birthMonth = (10 - month)
+    if (month < 10) {
+        let age = (2022 - year);
+        let birthMonth = (10 - month)
 
-    document.querySelector('h3').innerHTML += age + ' ans et ' + birthMonth + ' mois';
+        document.querySelector('h3').innerHTML += age + ' ans et ' + birthMonth + ' mois';
 
-    console.log(age);
+        console.log(age);
+
+    } else if (month > 10) {
+
+        year++;
+        console.log(year);
+        let age = (2022 - year);
+        let birthMonth = (month - 10)
+
+        console.log(age);
+
+        document.querySelector('h3').innerHTML += age + ' ans et ' + birthMonth + ' mois';
+
+    } else {
+        let age = (2022 - year);
+        document.querySelector('h3').innerHTML += age + ' ans'
+    }
+
+
+
 
 }
 
