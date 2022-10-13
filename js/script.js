@@ -5,7 +5,7 @@ function askName() {
     var bonjour = "👋 Bonjour ";
 
     document.querySelector('h2').innerHTML = bonjour + name;
-
+    //document.body.innerHTML = bonjour + name;
 }
 
 
@@ -33,6 +33,7 @@ function askBirthYear() {
         console.log(year);
         let age = (2022 - year);
         let birthMonth = (month - 10)
+        console.log(birthMonth);
 
         console.log(age);
 
@@ -42,10 +43,6 @@ function askBirthYear() {
         let age = (2022 - year);
         document.querySelector('h3').innerHTML += age + ' ans'
     }
-
-
-
-
 }
 
 askName();
