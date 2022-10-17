@@ -4,8 +4,7 @@ function askName() {
     var name = prompt("Quelle est votre nom ?");
     var bonjour = "👋 Bonjour ";
 
-    document.querySelector('h2').innerHTML = bonjour + name;
-    //document.body.innerHTML = bonjour + name;
+    return bonjour + name;
 }
 
 
@@ -14,38 +13,39 @@ function askBirthYear() {
     let year = prompt("Quelle est votre année de naissance ?");
     var month = prompt("Quelle est votre mois de naissance ?");
 
-    /*function calculAge() {
-        var age = 2022 - year;
-        return age;
-    }*/
+    let today = new Date();
+    console.log(today);
 
-    if (month < 10) {
-        let age = (2022 - year);
-        let birthMonth = (10 - month)
-
-        document.querySelector('h3').innerHTML += age + ' ans et ' + birthMonth + ' mois';
+    if (month < today.getMonth()) {
+        let age = today.getFullYear() - year;
+        let birthMonth = today.getMonth() + 1 - month;
 
         console.log(age);
+        console.log(birthMonth);
 
-    } else if (month > 10) {
+        return age + ' ans et ' + birthMonth + ' mois';
+
+    } else if (month > today.getMonth()) {
 
         year++;
         console.log(year);
-        let age = (2022 - year);
-        let birthMonth = (month - 10)
-        console.log(birthMonth);
 
+        let age = (today.getFullYear() - year);
+        let birthMonth = (month - (today.getMonth() + 1))
+
+        console.log(birthMonth);
         console.log(age);
 
-        document.querySelector('h3').innerHTML += age + ' ans et ' + birthMonth + ' mois';
+        return age + ' ans et ' + birthMonth + ' mois';
 
     } else {
-        let age = (2022 - year);
+        let age = (today.getFullYear() - year);
         document.querySelector('h3').innerHTML += age + ' ans'
     }
 }
 
-askName();
-askBirthYear();
+
+document.querySelector('h2').innerHTML = askName();
+document.querySelector('h3').innerHTML += askBirthYear();
 
 
